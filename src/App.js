@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import JobRegister from "./pages/JobRegister";
 
 import JobSearch from "./pages/JobSearch";
 import Login from "./pages/Login";
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Jobs" element={<JobSearch />} />
+        <Route path="/JobRegister" element={<JobRegister />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </Router>

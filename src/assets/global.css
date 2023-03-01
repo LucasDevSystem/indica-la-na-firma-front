@@ -9,7 +9,7 @@ body, html {
   font-family: 'Roboto', sans-serif;
 }
 
-.login-form {
+.login-form, .jobRegister-form {
   width: 100%;
 }
 
@@ -17,7 +17,6 @@ body, html {
   display: block;
   font-size: 30px;
   color: rgb(90, 184, 228);
-  line-height: 3;
   text-align: center;
 }
 
@@ -25,7 +24,7 @@ body, html {
   width: 700px;
 }
 
-.wrap-input {
+.wrap-input, .dados-vaga-input {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #54bce6;
@@ -135,6 +134,7 @@ body, html {
   background: -o-linear-gradient(to left, #21d4fd, #f1f4f7);
   background: -moz-linear-gradient(to left, #21d4fd, #e4e8ec);
   background: linear-gradient(to left, #21d4fd, #2f87eb);
+  font-weight: bold;
 }
 
 .login-form-btn:hover {
@@ -160,4 +160,76 @@ body, html {
   color: #378fe2;
   line-height: 1.5;
   text-decoration: none;
+}
+
+/*jobRegister*/
+.jobRegister-form {
+  display: block;
+  font-size: 20px;
+  color: #2d2d2d;
+  text-align: left;
+}
+
+.jobRegister-form-title2 {
+  color: #2d2d2d;
+}
+
+.jobRegister-form-title {
+  color: rgb(90, 184, 228);
+}
+
+.jobRegister-form-title, .jobRegister-form-title2 {
+  text-align: center;
+  line-height: 2;
+}
+
+.container-jobRegister-form-btn {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  line-height: normal;
+  justify-content: space-evenly;
+}
+
+.jobRegister-form-btn-excluir {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: rgb(253, 253, 253);
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 50px;
+  background-color: rgb(240, 90, 90);
+  font-weight: bold;
+}
+
+.jobRegister-form-btn-cadastrar {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: rgb(253, 253, 253);
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 50px;
+  background: -webkit-linear-gradient(to left, #21d4fd, #dadee2);
+  background: -o-linear-gradient(to left, #21d4fd, #f1f4f7);
+  background: -moz-linear-gradient(to left, #21d4fd, #e4e8ec);
+  background: linear-gradient(to left, #21d4fd, #2f87eb);
+  font-weight: bold;
+}
+
+.dados-vaga-input {
+  margin-top: 50px;
+}
+
+.jobRegister-form-btn-excluir, .jobRegister-form-btn-cadastrar {
+  cursor: pointer;
 }
