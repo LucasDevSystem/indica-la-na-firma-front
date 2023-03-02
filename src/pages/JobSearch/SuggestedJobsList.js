@@ -3,7 +3,9 @@
  *  https://github.com/LucasDevSystem
  */
 import { Grid, Paper, MobileStepper } from "@mui/material";
+import { useState } from "react";
 import SuggestedOpportunityCard from "./ SuggestedOpportunitiesCard";
+import ApplyModal from "./ApplyModal";
 
 const cardStyle = {
   height: 200,
@@ -13,8 +15,23 @@ const cardStyle = {
 };
 
 const SuggestedJobsList = ({ jobs = [], onClick }) => {
+  const [isModalOpen, setIsmodalOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState({});
+
+  const onApply = (job) => {
+    setIsmodalOpen(true);
+    setSelectedJob(job);
+  };
+
+  const handleClose = () => setIsmodalOpen(false);
   return (
     <div>
+      <ApplyModal
+        onConfirm={() => onClick(selectedJob)}
+        open={isModalOpen}
+        job={selectedJob}
+        onClose={handleClose}
+      ></ApplyModal>
       <Grid sx={{ flexGrow: 1 }} marginTop={2} container spacing={2}>
         <Grid item xs={12}>
           <Grid container justifyContent="center" spacing={2}>
@@ -23,7 +40,7 @@ const SuggestedJobsList = ({ jobs = [], onClick }) => {
                 <Paper sx={cardStyle}>
                   <SuggestedOpportunityCard
                     {...job}
-                    onClick={() => onClick(job)}
+                    onClick={() => onApply(job)}
                   />
                 </Paper>
               </Grid>

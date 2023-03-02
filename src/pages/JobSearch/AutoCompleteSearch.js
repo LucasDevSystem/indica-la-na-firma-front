@@ -3,12 +3,13 @@
  *  https://github.com/LucasDevSystem
  */
 
-import { Grid, IconButton, Paper, TextField } from "@mui/material";
+import { Button, Grid, IconButton, Paper, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+import { Add } from "@mui/icons-material";
 
-const AutoCompleteSearch = ({onSearch , searhSuggestions}) => {
+const AutoCompleteSearch = ({ onSearch, serchSuggestions }) => {
   const [text, setText] = useState("");
 
   return (
@@ -41,23 +42,30 @@ const AutoCompleteSearch = ({onSearch , searhSuggestions}) => {
               label="Pesquisar vagas"
               placeholder="Pesquisar vagas"
               variant="standard"
+              onChange={(e) => setText(e.target.value)}
               style={{ width: "90%", border: "none", marginLeft: 10 }}
             />
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <IconButton
+              onClick={() => onSearch(text)}
+              type="button"
+              sx={{ p: "10px" }}
+              aria-label="search"
+            >
               <SearchIcon />
             </IconButton>
           </Paper>
         </Grid>
 
-        {/* <Grid item xs={16}>
+        <Grid item xs={16}>
           <Button
+            href="/jobregister"
             variant="outlined"
-            style={{ width: 200, height: 50 }}
+            style={{ width: 600, height: 50 }}
             endIcon={<Add></Add>}
           >
             Cadastrar vaga
           </Button>
-        </Grid> */}
+        </Grid>
       </Grid>
     </Box>
   );

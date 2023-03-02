@@ -4,6 +4,7 @@ import JobRegister from "./pages/JobRegister";
 
 import JobSearch from "./pages/JobSearch";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Jobs" element={<JobSearch />} />
         <Route path="/JobRegister" element={<JobRegister />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </Router>

@@ -9,7 +9,7 @@ body, html {
   font-family: 'Roboto', sans-serif;
 }
 
-.login-form, .jobRegister-form {
+.login-form {
   width: 100%;
 }
 
@@ -24,7 +24,7 @@ body, html {
   width: 700px;
 }
 
-.wrap-input, .dados-vaga-input {
+.wrap-input, .dados-vaga-input, .userData-input {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #54bce6;
@@ -166,12 +166,13 @@ body, html {
 .jobRegister-form {
   display: block;
   font-size: 20px;
-  color: #2d2d2d;
+  color: #696969;
   text-align: left;
+  width: 100%;
 }
 
 .jobRegister-form-title2 {
-  color: #2d2d2d;
+  color: #696969;
 }
 
 .jobRegister-form-title {
@@ -232,4 +233,105 @@ body, html {
 
 .jobRegister-form-btn-excluir, .jobRegister-form-btn-cadastrar {
   cursor: pointer;
+}
+
+/*UserPage*/
+.UserData-form {
+  display: flex;
+  font-size: 20px;
+  color: #696969;
+  text-align: center;
+  width: 100%;
+}
+
+.userData-form-title {
+  display: block;
+  color: rgb(90, 184, 228);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.UserData-form-btn-alterarFoto, .UserData-form-btn-editarDados {
+  font-size: 15px;
+  border: 1px solid #696969;
+  border-radius: 10px;
+  color: #696969;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150%;
+  height: 50px;
+  background-color: white;
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+.UserData-form-btn-cadastrarCurriculo {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: rgb(253, 253, 253);
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150%;
+  height: 50px;
+  background-color: #2e98df;
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+.userData-input {
+  margin-top: 50px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.UserData-form-btn-alterarFoto, .UserData-form-btn-editarDados, .UserData-form-btn-cadastrarCurriculo {
+  cursor: pointer;
+}
+
+.labelUserData {
+  color: #696969;
+}
+
+.userData-options {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  float: right;
+  margin-top: 50px;
+}
+
+.container-UserData-form-btn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  flex-direction: column;
+}
+
+.userPhoto {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  border: 1px solid #696969;
+  box-shadow: 2px 5px 10px 0px rgb(0 0 0 / 20%);
+}
+
+.userPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

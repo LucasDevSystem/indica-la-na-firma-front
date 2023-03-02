@@ -12,56 +12,41 @@ import SuggestedJobsList from "./SuggestedJobsList";
 import NavBar from "../../components/NavBar";
 import AutoCompleteSearch from "./AutoCompleteSearch";
 
-// api data exemple
-const apiSuggestedJobs = [
-  {
-    title: "Desenvolvedor nodeJs",
-    description: "desenvolvedro node com salario de 20k por meis",
-    created_at: "29/01/2023",
-    authorId: 1,
-    offerer: "google",
-    location: "sabara",
-  },
-  {
-    title: "Desenvolvedor react",
-    description: "desenvolvedor node com salario de 20k por meis",
-    created_at: "29/01/2023",
-    authorId: 1,
-    offerer: "google",
-    location: "sabara",
-  },
-];
-
 function JobSearch() {
   const [suggestedJobs, setSuggestedJobs] = useState([]);
-  const [jobs, setJobs] = useState(apiSuggestedJobs);
+  const [jobs, setJobs] = useState([]);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const userData = JSON.parse(localStorage.getItem("user"));
 
-  const handleSearch = async (query) => {
-    const result = await axios.get("back-end_url", {
-      params: {
-        query,
+  const handleSearch = async (searchStr) => {
+    const result = await axios.post("http://192.168.18.179:1388/job/search", {
+      query: {
+        value: searchStr,
       },
     });
 
-    setJobs(apiSuggestedJobs);
+    setJobs(result.data);
   };
 
-  const handleRegisterJob = () => {};
+  const handleApplyJob = async ({ id }) => {
+    try {
+      const result = await axios.post("http://192.168.18.179:1388/application", {
+        userId: userData.id,
+        jobId: id,
+      });
 
-  const handleApplyJob = async () => {
-    // const result = await axios.post("back-edn_url/job/apply", {
-    //   authorId: "",
-    //   jobId: "",
-    // });
+      console.log(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getSuggestedOpportunities = async () => {
-    // const result = await axios.get("back-end_url/job/suggested", {
-    //   params: { interest: "user interests" },
-    // });
+    const result = await axios.get(
+      "http://192.168.18.179:1388/job/suggesteds/4"
+    );
 
-    setSuggestedJobs(apiSuggestedJobs);
+    setSuggestedJobs(result.data);
   };
 
   // get suggested opportunies by user interests
@@ -89,7 +74,10 @@ function JobSearch() {
           Destaques com o seu perfil
         </Typography>
       </Container>
-      <SuggestedJobsList jobs={jobs} onClick={(job) => handleApplyJob(job)} />
+      <SuggestedJobsList
+        jobs={suggestedJobs}
+        onClick={(job) => handleApplyJob(job)}
+      />
       <JobOpportunityList jobs={jobs} onClick={(job) => handleApplyJob(job)} />
     </div>
   );
